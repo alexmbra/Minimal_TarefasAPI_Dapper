@@ -36,7 +36,7 @@ public static class TarefasEndpoints
             }
         });
 
-        app.MapPut("tarefas", async(Tarefa tarefa, GetConnection connectionGetter) =>
+        app.MapPut("tarefas/put", async(Tarefa tarefa, GetConnection connectionGetter) =>
         {
             try
             {

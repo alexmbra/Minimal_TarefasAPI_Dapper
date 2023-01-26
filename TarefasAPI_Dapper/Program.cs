@@ -1,3 +1,4 @@
+using TarefasAPI_Dapper;
 using TarefasAPI_Dapper.Endpoints;
 using TarefasAPI_Dapper.Extensions;
 using static System.Net.Mime.MediaTypeNames;
@@ -24,9 +25,11 @@ app.UseExceptionHandler(exceptionHandlerApp =>
         {
             await context.Response.WriteAsync(exceptionHandlerPathFeature?.Error.Message);
         }
- 
+
     });
 });
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.MapTarefasEndpoints();
 
